@@ -68,7 +68,7 @@ def train_model(input_to_softmax,
         os.makedirs('results')
 
     # add checkpointer
-    checkpointer = ModelCheckpoint(filepath='results/'+save_model_path, verbose=0)
+    checkpointer = ModelCheckpoint(filepath='results/'+save_model_path, verbose=0, save_best_only=True)
 
     # train the model
     hist = model.fit_generator(generator=audio_gen.next_train(), steps_per_epoch=steps_per_epoch,
